@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<title> Exception Errors </title>
+</head>
+<body>
+<div>
+<h1>................ERROR........................ </h1>
+<br/>
+<h4>Error message:
+<h5 th:text ="${error}"></h5></h4>
+<h4>Status code:
+<h5 th:text ="${status}"></h5></h4>
+<h4>Time and Date:
+<h5 th:text ="${timestamp}"></h5></h4>
+</div>
+</body>
+</html>

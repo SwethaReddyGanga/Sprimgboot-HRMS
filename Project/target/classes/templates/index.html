@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+	<script type="text/javascript">
+      
+</script>
+	<style>
+		table, th, td { border:1px solid black; 
+				border-collapse: collapse;
+				padding: 10px;
+				}
+		h3
+		{
+			color:black;
+			text-align:center;
+			font-family:TimesNewRoman;
+		}
+	</style>
+
+</head>
+<body>
+<div>
+
+
+<h3>HUMAN RESOURCE MANAGEMENT</h3> 
+
+
+ <a type="button" th:href="@{/}">HOME </a>
+ <br/>
+ <a type="button" href="addEmployeee">Create new Employee</a> 
+ <br/> <br/>
+	
+	<form th:action="@{/}">
+	
+	<input type = "text" name="keyword" id="keyword" placeholder="search details" th:value="${keyword}" required/> &emsp;
+	<input type="submit" value= "search" /> 
+	</form>
+	<br/> <br/>
+
+	<tr>
+		<div class="col-sm-5" align = "center">
+                <div class="panel-body" align = "center" >
+	
+
+
+                <table class="table">
+		
+ 			<thead class="thead-dark">
+    				<tr>
+      	    			<th>Id</th>
+            			<th>FirstName</th>
+            			<th>LastName</th>
+	    			<th>Email</th>
+	    			<th>MobileNumber</th>
+	    			<th>Designation</th>
+	    			<th>Location</th>
+	    			<th>Department</th>
+	    			<th>DateOfJoining</th>
+	    			<th>DateOfTermination</th>
+	    			<th>Status</th>
+            			<th>Edit</th>
+            			<th>Delete</th>
+   				</tr>
+  			</thead>
+  			<tbody>
+      				<tr th:each="emp : ${listemployeees }">
+				<td th:text="${emp.id}">Employee Id</td>
+				<td th:text="${emp.firstName}">Employee FirstName</td>
+				<td th:text="${emp.lastName}">Employee LastName</td>
+				<td th:text="${emp.email}">Employee Email</td>
+				<td th:text="${emp.mobileNumber}">Employee MobileNumber</td>
+				<td th:text="${emp.designation}">Employee Designation</td>
+				<td th:text="${emp.location}">Employee Location}</td>
+				<td th:text="${emp.department}">Employee Department</td>
+				<td th:text="${emp.dateOfJoining}">Employee DateOfJoining</td>
+				<td th:text="${emp.dateOfTermination}">Employee DateOfTermination</td>
+				<td th:text="${emp.status}">Employee Status</td>				
+				<td>
+					<a type="edit" th:href="@{'/edit/'+${emp.id}}">Edit</a>
+				</td>							    
+				<td>
+					<a type="delete" th:href="@{'/delete/'+${emp.id}}">Delete</a>
+				</td>		    
+				</tr> 
+ 	 		</tbody>
+		</table>
+                 </div>
+            </div> 
+	</tr>
+	</div>
+</body>
+</html>
